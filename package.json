@@ -3,7 +3,8 @@
   "type": "module",
   "version": "1.0.0",
   "description": "shared",
-  "main": "index.ts",
+  "files": [ "dist" ],
+  "main": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
