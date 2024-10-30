@@ -1,11 +1,17 @@
 {
     "compilerOptions": {
       "outDir": "./dist",
-      "moduleResolution": "node",
       "declaration": true,
-      "module": "ES6",
+      "module": "ESNext",
+      "moduleResolution": "Node",
       "target": "ES6",
-      "strict": true
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx"
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
   }
