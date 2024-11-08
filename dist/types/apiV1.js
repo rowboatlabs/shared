@@ -82,3 +82,7 @@ export const ApiGetChatMessagesResponse = z.object({
     next: z.string().optional(),
     previous: z.string().optional(),
 });
+export const ApiCreateGuestSessionRequest = z.object({});
+export const ApiCreateGuestSessionResponse = z.object({
+    sessionId: z.string(),
+});

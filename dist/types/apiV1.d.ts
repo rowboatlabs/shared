@@ -614,3 +614,11 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
     next?: string | undefined;
     previous?: string | undefined;
 }>;
+export declare const ApiCreateGuestSessionRequest: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
+export declare const ApiCreateGuestSessionResponse: z.ZodObject<{
+    sessionId: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    sessionId: string;
+}, {
+    sessionId: string;
+}>;
