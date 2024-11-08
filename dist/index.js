@@ -1,1 +1,1 @@
-export * as apiV1 from './types/api_v1';
+export * as apiV1 from './types/apiV1';
