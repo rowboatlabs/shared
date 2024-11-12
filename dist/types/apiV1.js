@@ -1,13 +1,18 @@
 import { z } from 'zod';
-const SystemMessage = z.object({
+export const SystemMessage = z.object({
     role: z.literal("system"),
     content: z.string(),
 });
-const UserMessage = z.object({
+export const UserMessage = z.object({
     role: z.literal("user"),
     content: z.string(),
 });
-const AssistantMessage = z.object({
+export const AssistantMessage = z.object({
+    role: z.literal("assistant"),
+    content: z.string(),
+    agentName: z.string().optional(),
+});
+export const AssistantMessageWithToolCalls = z.object({
     role: z.literal("assistant"),
     content: z.string().optional(),
     tool_calls: z.array(z.object({
@@ -17,10 +22,10 @@ const AssistantMessage = z.object({
             name: z.string(),
             arguments: z.string(),
         }),
-    })).optional(),
+    })),
     agentName: z.string().optional(),
 });
-const ToolMessage = z.object({
+export const ToolMessage = z.object({
     role: z.literal("tool"),
     content: z.string(),
     tool_call_id: z.string(),
@@ -36,6 +41,7 @@ export const ChatMessage = BaseChatMessage
     SystemMessage,
     UserMessage,
     AssistantMessage,
+    AssistantMessageWithToolCalls,
     ToolMessage,
 ]));
 export const ChatCloseReason = z.union([

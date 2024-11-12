@@ -1,4 +1,110 @@
 import { z } from 'zod';
+export declare const SystemMessage: z.ZodObject<{
+    role: z.ZodLiteral<"system">;
+    content: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "system";
+}, {
+    content: string;
+    role: "system";
+}>;
+export declare const UserMessage: z.ZodObject<{
+    role: z.ZodLiteral<"user">;
+    content: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "user";
+}, {
+    content: string;
+    role: "user";
+}>;
+export declare const AssistantMessage: z.ZodObject<{
+    role: z.ZodLiteral<"assistant">;
+    content: z.ZodString;
+    agentName: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}>;
+export declare const AssistantMessageWithToolCalls: z.ZodObject<{
+    role: z.ZodLiteral<"assistant">;
+    content: z.ZodOptional<z.ZodString>;
+    tool_calls: z.ZodArray<z.ZodObject<{
+        id: z.ZodString;
+        type: z.ZodLiteral<"function">;
+        function: z.ZodObject<{
+            name: z.ZodString;
+            arguments: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            name: string;
+            arguments: string;
+        }, {
+            name: string;
+            arguments: string;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        function: {
+            name: string;
+            arguments: string;
+        };
+        type: "function";
+        id: string;
+    }, {
+        function: {
+            name: string;
+            arguments: string;
+        };
+        type: "function";
+        id: string;
+    }>, "many">;
+    agentName: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    role: "assistant";
+    tool_calls: {
+        function: {
+            name: string;
+            arguments: string;
+        };
+        type: "function";
+        id: string;
+    }[];
+    content?: string | undefined;
+    agentName?: string | undefined;
+}, {
+    role: "assistant";
+    tool_calls: {
+        function: {
+            name: string;
+            arguments: string;
+        };
+        type: "function";
+        id: string;
+    }[];
+    content?: string | undefined;
+    agentName?: string | undefined;
+}>;
+export declare const ToolMessage: z.ZodObject<{
+    role: z.ZodLiteral<"tool">;
+    content: z.ZodString;
+    tool_call_id: z.ZodString;
+    tool_name: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "tool";
+    tool_call_id: string;
+    tool_name: string;
+}, {
+    content: string;
+    role: "tool";
+    tool_call_id: string;
+    tool_name: string;
+}>;
 export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
     version: z.ZodLiteral<"v1">;
     chatId: z.ZodString;
@@ -31,8 +137,20 @@ export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
     role: "user";
 }>, z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
+    content: z.ZodString;
+    agentName: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}>, z.ZodObject<{
+    role: z.ZodLiteral<"assistant">;
     content: z.ZodOptional<z.ZodString>;
-    tool_calls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+    tool_calls: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
         type: z.ZodLiteral<"function">;
         function: z.ZodObject<{
@@ -59,31 +177,31 @@ export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
         };
         type: "function";
         id: string;
-    }>, "many">>;
+    }>, "many">;
     agentName: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
+    tool_calls: {
         function: {
             name: string;
             arguments: string;
         };
         type: "function";
         id: string;
-    }[] | undefined;
+    }[];
+    content?: string | undefined;
     agentName?: string | undefined;
 }, {
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
+    tool_calls: {
         function: {
             name: string;
             arguments: string;
         };
         type: "function";
         id: string;
-    }[] | undefined;
+    }[];
+    content?: string | undefined;
     agentName?: string | undefined;
 }>, z.ZodObject<{
     role: z.ZodLiteral<"tool">;
@@ -306,8 +424,20 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     role: "user";
 }>, z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
+    content: z.ZodString;
+    agentName: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}, {
+    content: string;
+    role: "assistant";
+    agentName?: string | undefined;
+}>, z.ZodObject<{
+    role: z.ZodLiteral<"assistant">;
     content: z.ZodOptional<z.ZodString>;
-    tool_calls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+    tool_calls: z.ZodArray<z.ZodObject<{
         id: z.ZodString;
         type: z.ZodLiteral<"function">;
         function: z.ZodObject<{
@@ -334,31 +464,31 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
         };
         type: "function";
         id: string;
-    }>, "many">>;
+    }>, "many">;
     agentName: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
+    tool_calls: {
         function: {
             name: string;
             arguments: string;
         };
         type: "function";
         id: string;
-    }[] | undefined;
+    }[];
+    content?: string | undefined;
     agentName?: string | undefined;
 }, {
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
+    tool_calls: {
         function: {
             name: string;
             arguments: string;
         };
         type: "function";
         id: string;
-    }[] | undefined;
+    }[];
+    content?: string | undefined;
     agentName?: string | undefined;
 }>, z.ZodObject<{
     role: z.ZodLiteral<"tool">;
@@ -389,59 +519,15 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     createdAt: string;
 }>>, z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
-    content: z.ZodOptional<z.ZodString>;
-    tool_calls: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        id: z.ZodString;
-        type: z.ZodLiteral<"function">;
-        function: z.ZodObject<{
-            name: z.ZodString;
-            arguments: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            name: string;
-            arguments: string;
-        }, {
-            name: string;
-            arguments: string;
-        }>;
-    }, "strip", z.ZodTypeAny, {
-        function: {
-            name: string;
-            arguments: string;
-        };
-        type: "function";
-        id: string;
-    }, {
-        function: {
-            name: string;
-            arguments: string;
-        };
-        type: "function";
-        id: string;
-    }>, "many">>;
+    content: z.ZodString;
     agentName: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
+    content: string;
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
-        function: {
-            name: string;
-            arguments: string;
-        };
-        type: "function";
-        id: string;
-    }[] | undefined;
     agentName?: string | undefined;
 }, {
+    content: string;
     role: "assistant";
-    content?: string | undefined;
-    tool_calls?: {
-        function: {
-            name: string;
-            arguments: string;
-        };
-        type: "function";
-        id: string;
-    }[] | undefined;
     agentName?: string | undefined;
 }>>, z.ZodObject<{
     id: z.ZodString;
@@ -483,8 +569,20 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         role: "user";
     }>, z.ZodObject<{
         role: z.ZodLiteral<"assistant">;
+        content: z.ZodString;
+        agentName: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        content: string;
+        role: "assistant";
+        agentName?: string | undefined;
+    }, {
+        content: string;
+        role: "assistant";
+        agentName?: string | undefined;
+    }>, z.ZodObject<{
+        role: z.ZodLiteral<"assistant">;
         content: z.ZodOptional<z.ZodString>;
-        tool_calls: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        tool_calls: z.ZodArray<z.ZodObject<{
             id: z.ZodString;
             type: z.ZodLiteral<"function">;
             function: z.ZodObject<{
@@ -511,31 +609,31 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
             };
             type: "function";
             id: string;
-        }>, "many">>;
+        }>, "many">;
         agentName: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         role: "assistant";
-        content?: string | undefined;
-        tool_calls?: {
+        tool_calls: {
             function: {
                 name: string;
                 arguments: string;
             };
             type: "function";
             id: string;
-        }[] | undefined;
+        }[];
+        content?: string | undefined;
         agentName?: string | undefined;
     }, {
         role: "assistant";
-        content?: string | undefined;
-        tool_calls?: {
+        tool_calls: {
             function: {
                 name: string;
                 arguments: string;
             };
             type: "function";
             id: string;
-        }[] | undefined;
+        }[];
+        content?: string | undefined;
         agentName?: string | undefined;
     }>, z.ZodObject<{
         role: z.ZodLiteral<"tool">;
@@ -573,16 +671,20 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         content: string;
         role: "user";
     } | {
+        content: string;
         role: "assistant";
-        content?: string | undefined;
-        tool_calls?: {
+        agentName?: string | undefined;
+    } | {
+        role: "assistant";
+        tool_calls: {
             function: {
                 name: string;
                 arguments: string;
             };
             type: "function";
             id: string;
-        }[] | undefined;
+        }[];
+        content?: string | undefined;
         agentName?: string | undefined;
     } | {
         content: string;
@@ -606,16 +708,20 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         content: string;
         role: "user";
     } | {
+        content: string;
         role: "assistant";
-        content?: string | undefined;
-        tool_calls?: {
+        agentName?: string | undefined;
+    } | {
+        role: "assistant";
+        tool_calls: {
             function: {
                 name: string;
                 arguments: string;
             };
             type: "function";
             id: string;
-        }[] | undefined;
+        }[];
+        content?: string | undefined;
         agentName?: string | undefined;
     } | {
         content: string;
