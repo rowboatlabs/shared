@@ -117,7 +117,7 @@ export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
     version: "v1";
     chatId: string;
     createdAt: string;
-}>, z.ZodDiscriminatedUnion<"role", [z.ZodObject<{
+}>, z.ZodUnion<[z.ZodObject<{
     role: z.ZodLiteral<"system">;
     content: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -404,7 +404,7 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     version: "v1";
     chatId: string;
     createdAt: string;
-}>, z.ZodDiscriminatedUnion<"role", [z.ZodObject<{
+}>, z.ZodUnion<[z.ZodObject<{
     role: z.ZodLiteral<"system">;
     content: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -549,7 +549,7 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         version: "v1";
         chatId: string;
         createdAt: string;
-    }>, z.ZodDiscriminatedUnion<"role", [z.ZodObject<{
+    }>, z.ZodUnion<[z.ZodObject<{
         role: z.ZodLiteral<"system">;
         content: z.ZodString;
     }, "strip", z.ZodTypeAny, {

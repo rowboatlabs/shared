@@ -37,7 +37,7 @@ const BaseChatMessage = z.object({
     createdAt: z.string().datetime(),
 });
 export const ChatMessage = BaseChatMessage
-    .and(z.discriminatedUnion("role", [
+    .and(z.union([
     SystemMessage,
     UserMessage,
     AssistantMessage,
