@@ -18,6 +18,7 @@ const AssistantMessage = z.object({
             arguments: z.string(),
         }),
     })).optional(),
+    agentName: z.string().optional(),
 });
 const ToolMessage = z.object({
     role: z.literal("tool"),
@@ -25,6 +26,18 @@ const ToolMessage = z.object({
     tool_call_id: z.string(),
     tool_name: z.string(),
 });
+const BaseChatMessage = z.object({
+    version: z.literal('v1'),
+    chatId: z.string(),
+    createdAt: z.string().datetime(),
+});
+export const ChatMessage = BaseChatMessage
+    .and(z.discriminatedUnion("role", [
+    SystemMessage,
+    UserMessage,
+    AssistantMessage,
+    ToolMessage,
+]));
 export const ChatCloseReason = z.union([
     z.literal('user-closed-chat'),
     z.literal('assistant-closed-chat'),
@@ -41,18 +54,6 @@ export const Chat = z.object({
     closeReason: ChatCloseReason.optional(),
     lastAgentId: z.string().optional(),
 });
-const BaseChatMessage = z.object({
-    version: z.literal('v1'),
-    chatId: z.string(),
-    createdAt: z.string().datetime(),
-});
-export const ChatMessage = BaseChatMessage
-    .and(z.discriminatedUnion("role", [
-    SystemMessage,
-    UserMessage,
-    AssistantMessage,
-    ToolMessage,
-]));
 export const ApiCreateChatRequest = z.object({});
 export const ApiCreateChatResponse = Chat
     .and(z.object({
