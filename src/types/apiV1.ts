@@ -27,7 +27,7 @@ export const AssistantMessageWithToolCalls = z.object({
             arguments: z.string(),
         }),
     })),
-    agentName: z.string().optional(),
+    sender: z.string().optional(),
 });
 
 export const ToolMessage = z.object({
