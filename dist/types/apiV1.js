@@ -11,6 +11,7 @@ export const AssistantMessage = z.object({
     role: z.literal("assistant"),
     content: z.string(),
     agentName: z.string().optional(),
+    sender: z.string().optional(),
 });
 export const AssistantMessageWithToolCalls = z.object({
     role: z.literal("assistant"),

@@ -23,14 +23,17 @@ export declare const AssistantMessage: z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
     content: z.ZodString;
     agentName: z.ZodOptional<z.ZodString>;
+    sender: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }>;
 export declare const AssistantMessageWithToolCalls: z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
@@ -139,14 +142,17 @@ export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
     content: z.ZodString;
     agentName: z.ZodOptional<z.ZodString>;
+    sender: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }>, z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
     content: z.ZodOptional<z.ZodString>;
@@ -426,14 +432,17 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     role: z.ZodLiteral<"assistant">;
     content: z.ZodString;
     agentName: z.ZodOptional<z.ZodString>;
+    sender: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }>, z.ZodObject<{
     role: z.ZodLiteral<"assistant">;
     content: z.ZodOptional<z.ZodString>;
@@ -521,14 +530,17 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     role: z.ZodLiteral<"assistant">;
     content: z.ZodString;
     agentName: z.ZodOptional<z.ZodString>;
+    sender: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }, {
     content: string;
     role: "assistant";
     agentName?: string | undefined;
+    sender?: string | undefined;
 }>>, z.ZodObject<{
     id: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -571,14 +583,17 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         role: z.ZodLiteral<"assistant">;
         content: z.ZodString;
         agentName: z.ZodOptional<z.ZodString>;
+        sender: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         content: string;
         role: "assistant";
         agentName?: string | undefined;
+        sender?: string | undefined;
     }, {
         content: string;
         role: "assistant";
         agentName?: string | undefined;
+        sender?: string | undefined;
     }>, z.ZodObject<{
         role: z.ZodLiteral<"assistant">;
         content: z.ZodOptional<z.ZodString>;
@@ -674,6 +689,7 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         content: string;
         role: "assistant";
         agentName?: string | undefined;
+        sender?: string | undefined;
     } | {
         role: "assistant";
         tool_calls: {
@@ -711,6 +727,7 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         content: string;
         role: "assistant";
         agentName?: string | undefined;
+        sender?: string | undefined;
     } | {
         role: "assistant";
         tool_calls: {
