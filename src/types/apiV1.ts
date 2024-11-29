@@ -42,7 +42,6 @@ const BaseChatMessage = z.object({
     version: z.literal('v1'),
     chatId: z.string(),
     createdAt: z.string().datetime(),
-    id: z.number().optional(),
     relevantAgents: z.array(z.string()).optional(),
     currentTurn: z.boolean().optional(),
 });

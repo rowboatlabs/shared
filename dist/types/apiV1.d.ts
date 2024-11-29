@@ -112,21 +112,18 @@ export declare const ChatMessage: z.ZodIntersection<z.ZodObject<{
     version: z.ZodLiteral<"v1">;
     chatId: z.ZodString;
     createdAt: z.ZodString;
-    id: z.ZodOptional<z.ZodNumber>;
     relevantAgents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     currentTurn: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }>, z.ZodUnion<[z.ZodObject<{
@@ -411,21 +408,18 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     version: z.ZodLiteral<"v1">;
     chatId: z.ZodString;
     createdAt: z.ZodString;
-    id: z.ZodOptional<z.ZodNumber>;
     relevantAgents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     currentTurn: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }>, z.ZodUnion<[z.ZodObject<{
@@ -536,21 +530,18 @@ export declare const ApiChatTurnResponse: z.ZodIntersection<z.ZodIntersection<z.
     version: z.ZodLiteral<"v1">;
     chatId: z.ZodString;
     createdAt: z.ZodString;
-    id: z.ZodOptional<z.ZodNumber>;
     relevantAgents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     currentTurn: z.ZodOptional<z.ZodBoolean>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }, {
     version: "v1";
     chatId: string;
     createdAt: string;
-    id?: number | undefined;
     relevantAgents?: string[] | undefined;
     currentTurn?: boolean | undefined;
 }>>, z.ZodObject<{
@@ -580,21 +571,18 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         version: z.ZodLiteral<"v1">;
         chatId: z.ZodString;
         createdAt: z.ZodString;
-        id: z.ZodOptional<z.ZodNumber>;
         relevantAgents: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         currentTurn: z.ZodOptional<z.ZodBoolean>;
     }, "strip", z.ZodTypeAny, {
         version: "v1";
         chatId: string;
         createdAt: string;
-        id?: number | undefined;
         relevantAgents?: string[] | undefined;
         currentTurn?: boolean | undefined;
     }, {
         version: "v1";
         chatId: string;
         createdAt: string;
-        id?: number | undefined;
         relevantAgents?: string[] | undefined;
         currentTurn?: boolean | undefined;
     }>, z.ZodUnion<[z.ZodObject<{
@@ -715,7 +703,6 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         version: "v1";
         chatId: string;
         createdAt: string;
-        id?: number | undefined;
         relevantAgents?: string[] | undefined;
         currentTurn?: boolean | undefined;
     } & ({
@@ -756,7 +743,6 @@ export declare const ApiGetChatMessagesResponse: z.ZodObject<{
         version: "v1";
         chatId: string;
         createdAt: string;
-        id?: number | undefined;
         relevantAgents?: string[] | undefined;
         currentTurn?: boolean | undefined;
     } & ({
