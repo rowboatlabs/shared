@@ -13,8 +13,7 @@ export const UserMessage = z.object({
 export const AssistantMessage = z.object({
     role: z.literal("assistant"),
     content: z.string(),
-    agentName: z.string().optional(),
-    sender: z.string().optional(),
+    agenticSender: z.string().optional(),
 });
 
 export const AssistantMessageWithToolCalls = z.object({
@@ -28,7 +27,7 @@ export const AssistantMessageWithToolCalls = z.object({
             arguments: z.string(),
         }),
     })),
-    sender: z.string().optional(),
+    agenticSender: z.string().optional(),
 });
 
 export const ToolMessage = z.object({
@@ -42,8 +41,8 @@ const BaseChatMessage = z.object({
     version: z.literal('v1'),
     chatId: z.string(),
     createdAt: z.string().datetime(),
-    relevantAgents: z.array(z.string()).optional(),
-    currentTurn: z.boolean().optional(),
+    agenticRelevantAgents: z.array(z.string()).optional(),
+    agenticCurrentTurn: z.boolean().optional(),
 });
 
 export const ChatMessage = BaseChatMessage
