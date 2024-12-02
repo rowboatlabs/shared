@@ -14,6 +14,10 @@ export const AssistantMessage = z.object({
     role: z.literal("assistant"),
     content: z.string(),
     agenticSender: z.string().optional(),
+    agenticResponseType: z.union([
+        z.literal('internal'),
+        z.literal('external'),
+    ]),
 });
 
 export const AssistantMessageWithToolCalls = z.object({
@@ -28,6 +32,10 @@ export const AssistantMessageWithToolCalls = z.object({
         }),
     })),
     agenticSender: z.string().optional(),
+    agenticResponseType: z.union([
+        z.literal('internal'),
+        z.literal('external'),
+    ]),
 });
 
 export const ToolMessage = z.object({
