@@ -43,8 +43,6 @@ const BaseChatMessage = z.object({
     version: z.literal('v1'),
     chatId: z.string(),
     createdAt: z.string().datetime(),
-    agenticRelevantAgents: z.array(z.string()).optional(),
-    agenticCurrentTurn: z.boolean().optional(),
 });
 export const ChatMessage = BaseChatMessage
     .and(z.union([
@@ -68,7 +66,7 @@ export const Chat = z.object({
     closed: z.boolean().optional(),
     closedAt: z.string().datetime().optional(),
     closeReason: ChatCloseReason.optional(),
-    lastAgentName: z.string().optional(),
+    agenticState: z.string().optional(),
 });
 export const ApiCreateChatRequest = z.object({});
 export const ApiCreateChatResponse = Chat
