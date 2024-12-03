@@ -240,7 +240,7 @@ export declare const Chat: z.ZodObject<{
     closed: z.ZodOptional<z.ZodBoolean>;
     closedAt: z.ZodOptional<z.ZodString>;
     closeReason: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"user-closed-chat">, z.ZodLiteral<"assistant-closed-chat">, z.ZodLiteral<"timeout">, z.ZodLiteral<"error">]>>;
-    agenticState: z.ZodOptional<z.ZodString>;
+    agenticState: z.ZodOptional<z.ZodUnknown>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     createdAt: string;
@@ -249,7 +249,7 @@ export declare const Chat: z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }, {
     version: "v1";
     createdAt: string;
@@ -258,7 +258,7 @@ export declare const Chat: z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }>;
 export declare const ApiCreateChatRequest: z.ZodObject<{}, "strip", z.ZodTypeAny, {}, {}>;
 export declare const ApiCreateChatResponse: z.ZodIntersection<z.ZodObject<{
@@ -269,7 +269,7 @@ export declare const ApiCreateChatResponse: z.ZodIntersection<z.ZodObject<{
     closed: z.ZodOptional<z.ZodBoolean>;
     closedAt: z.ZodOptional<z.ZodString>;
     closeReason: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"user-closed-chat">, z.ZodLiteral<"assistant-closed-chat">, z.ZodLiteral<"timeout">, z.ZodLiteral<"error">]>>;
-    agenticState: z.ZodOptional<z.ZodString>;
+    agenticState: z.ZodOptional<z.ZodUnknown>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     createdAt: string;
@@ -278,7 +278,7 @@ export declare const ApiCreateChatResponse: z.ZodIntersection<z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }, {
     version: "v1";
     createdAt: string;
@@ -287,7 +287,7 @@ export declare const ApiCreateChatResponse: z.ZodIntersection<z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }>, z.ZodObject<{
     id: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -303,7 +303,7 @@ export declare const ApiGetChatResponse: z.ZodIntersection<z.ZodObject<{
     closed: z.ZodOptional<z.ZodBoolean>;
     closedAt: z.ZodOptional<z.ZodString>;
     closeReason: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"user-closed-chat">, z.ZodLiteral<"assistant-closed-chat">, z.ZodLiteral<"timeout">, z.ZodLiteral<"error">]>>;
-    agenticState: z.ZodOptional<z.ZodString>;
+    agenticState: z.ZodOptional<z.ZodUnknown>;
 }, "strip", z.ZodTypeAny, {
     version: "v1";
     createdAt: string;
@@ -312,7 +312,7 @@ export declare const ApiGetChatResponse: z.ZodIntersection<z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }, {
     version: "v1";
     createdAt: string;
@@ -321,7 +321,7 @@ export declare const ApiGetChatResponse: z.ZodIntersection<z.ZodObject<{
     closed?: boolean | undefined;
     closedAt?: string | undefined;
     closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-    agenticState?: string | undefined;
+    agenticState?: unknown;
 }>, z.ZodObject<{
     id: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -338,7 +338,7 @@ export declare const ApiGetChatsResponse: z.ZodObject<{
         closed: z.ZodOptional<z.ZodBoolean>;
         closedAt: z.ZodOptional<z.ZodString>;
         closeReason: z.ZodOptional<z.ZodUnion<[z.ZodLiteral<"user-closed-chat">, z.ZodLiteral<"assistant-closed-chat">, z.ZodLiteral<"timeout">, z.ZodLiteral<"error">]>>;
-        agenticState: z.ZodOptional<z.ZodString>;
+        agenticState: z.ZodOptional<z.ZodUnknown>;
     }, "strip", z.ZodTypeAny, {
         version: "v1";
         createdAt: string;
@@ -347,7 +347,7 @@ export declare const ApiGetChatsResponse: z.ZodObject<{
         closed?: boolean | undefined;
         closedAt?: string | undefined;
         closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-        agenticState?: string | undefined;
+        agenticState?: unknown;
     }, {
         version: "v1";
         createdAt: string;
@@ -356,7 +356,7 @@ export declare const ApiGetChatsResponse: z.ZodObject<{
         closed?: boolean | undefined;
         closedAt?: string | undefined;
         closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-        agenticState?: string | undefined;
+        agenticState?: unknown;
     }>, z.ZodObject<{
         id: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -375,7 +375,7 @@ export declare const ApiGetChatsResponse: z.ZodObject<{
         closed?: boolean | undefined;
         closedAt?: string | undefined;
         closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-        agenticState?: string | undefined;
+        agenticState?: unknown;
     } & {
         id: string;
     })[];
@@ -390,7 +390,7 @@ export declare const ApiGetChatsResponse: z.ZodObject<{
         closed?: boolean | undefined;
         closedAt?: string | undefined;
         closeReason?: "error" | "timeout" | "user-closed-chat" | "assistant-closed-chat" | undefined;
-        agenticState?: string | undefined;
+        agenticState?: unknown;
     } & {
         id: string;
     })[];

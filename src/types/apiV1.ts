@@ -75,7 +75,7 @@ export const Chat = z.object({
     closed: z.boolean().optional(),
     closedAt: z.string().datetime().optional(),
     closeReason: ChatCloseReason.optional(),
-    agenticState: z.string().optional(),
+    agenticState: z.unknown().optional(),
 });
 
 export const ApiCreateChatRequest = z.object({});
