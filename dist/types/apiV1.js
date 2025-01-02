@@ -101,3 +101,9 @@ export const ApiCreateGuestSessionRequest = z.object({});
 export const ApiCreateGuestSessionResponse = z.object({
     sessionId: z.string(),
 });
+export const ApiCreateUserSessionRequest = z.object({
+    userDataJwt: z.string(),
+});
+export const ApiCreateUserSessionResponse = z.object({
+    sessionId: z.string(),
+});

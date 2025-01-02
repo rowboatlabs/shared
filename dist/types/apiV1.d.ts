@@ -773,3 +773,17 @@ export declare const ApiCreateGuestSessionResponse: z.ZodObject<{
 }, {
     sessionId: string;
 }>;
+export declare const ApiCreateUserSessionRequest: z.ZodObject<{
+    userDataJwt: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    userDataJwt: string;
+}, {
+    userDataJwt: string;
+}>;
+export declare const ApiCreateUserSessionResponse: z.ZodObject<{
+    sessionId: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    sessionId: string;
+}, {
+    sessionId: string;
+}>;
