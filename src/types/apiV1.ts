@@ -67,6 +67,11 @@ export const ChatCloseReason = z.union([
     z.literal('error'),
 ]);
 
+export const ChatUserData = z.object({
+    userId: z.string(),
+    userName: z.string().optional(),
+});
+
 export const Chat = z.object({
     version: z.literal('v1'),
     projectId: z.string(),
@@ -76,6 +81,7 @@ export const Chat = z.object({
     closedAt: z.string().datetime().optional(),
     closeReason: ChatCloseReason.optional(),
     agenticState: z.unknown().optional(),
+    userData: ChatUserData,
 });
 
 export const ApiCreateChatRequest = z.object({});
