@@ -13,7 +13,7 @@ export const UserMessage = z.object({
 export const AssistantMessage = z.object({
     role: z.literal("assistant"),
     content: z.string(),
-    agenticSender: z.string().optional(),
+    agenticSender: z.string().nullable().optional(),
     agenticResponseType: z.union([
         z.literal('internal'),
         z.literal('external'),
@@ -22,7 +22,7 @@ export const AssistantMessage = z.object({
 
 export const AssistantMessageWithToolCalls = z.object({
     role: z.literal("assistant"),
-    content: z.string().optional(),
+    content: z.string().nullable().optional(),
     tool_calls: z.array(z.object({
         id: z.string(),
         type: z.literal("function"),
@@ -31,7 +31,7 @@ export const AssistantMessageWithToolCalls = z.object({
             arguments: z.string(),
         }),
     })),
-    agenticSender: z.string().optional(),
+    agenticSender: z.string().nullable().optional(),
     agenticResponseType: z.union([
         z.literal('internal'),
         z.literal('external'),
